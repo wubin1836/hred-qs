@@ -67,12 +67,12 @@ def prototype_state():
 def prototype_test():
     state = prototype_state()
 
-    state['train_session'] = "tests/data/train.ses.pkl"
-    state['train_rank'] = "tests/data/train.rnk.pkl"
-    state['valid_session'] = "tests/data/valid.ses.pkl"
-    state['valid_rank'] = "tests/data/valid.rnk.pkl"
-    state['dictionary'] = "tests/data/train.dict.pkl"
-    state['save_dir'] = './tests/models/'
+    state['train_session'] = "/data/disk1/private/wubin/hred-qs/data_s/train.ses.pkl"
+    state['train_rank'] = "/data/disk1/private/wubin/hred-qs/data_s/train.rnk.pkl"
+    state['valid_session'] = "/data/disk1/private/wubin/hred-qs/data_s/valid.ses.pkl"
+    state['valid_rank'] = "/data/disk1/private/wubin/hred-qs/data_s/valid.rnk.pkl"
+    state['dictionary'] = "/data/disk1/private/wubin/hred-qs/data_s/train.dict.pkl"
+    state['save_dir'] = '/data/disk1/private/wubin/hred-qs/models_s/'
     state['decoder_bias_type'] = 'first'
     state['prefix'] = "test"
     state['deep_out'] = False
@@ -81,14 +81,14 @@ def prototype_test():
     state['lambda_rank'] = 0.
     state['use_nce'] = False
 
-    state['qdim'] = 50
+    state['qdim'] = 128
     # Dimensionality of session hidden layer
-    state['sdim'] = 100
+    state['sdim'] = 256
     # Dimensionality of low-rank approximation
-    state['rankdim'] = 25
+    state['rankdim'] = 64
 
-    state['bs'] = 80
-    state['seqlen'] = 60
+    state['bs'] = 5 
+    state['seqlen'] = 15
     state['eos_sym'] = 2
     state['eoq_sym'] = 1
 
@@ -101,11 +101,11 @@ def prototype_test():
 
 def aol_path():
     state = prototype_state()
-    state['dictionary'] = "/part/01/Tmp/sordonia/depot/query_reformulation/datasets_cikm/aol.clean.bkg.dict.pkl"
-    state['train_session'] = "/part/01/Tmp/sordonia/depot/query_reformulation/datasets_cikm/aol.clean.bkg.ses.pkl"
-    state['train_rank'] = "/part/01/Tmp/sordonia/depot/query_reformulation/datasets_cikm/aol.clean.bkg.rnk.pkl"
-    state['valid_session'] = "/part/01/Tmp/sordonia/depot/query_reformulation/datasets_cikm/aol.clean.val.ses.pkl"
-    state['valid_rank'] = "/part/01/Tmp/sordonia/depot/query_reformulation/datasets_cikm/aol.clean.val.rnk.pkl"
+    state['dictionary'] = "/data/disk1/private/wubin/hred-qs/data_s/train.dict.pkl"
+    state['train_session'] = "/data/disk1/private/wubin/hred-qs/data_s/train.ses.pkl"
+    state['train_rank'] = "/data/disk1/private/wubin/hred-qs/data_s/train.rnk.pkl"
+    state['valid_session'] = "/data/disk1/private/wubin/hred-qs/data_s/valid.ses.pkl"
+    state['valid_rank'] = "/data/disk1/private/wubin/hred-qs/data_s/valid.rnk.pkl"
     return state
 
 def aol():
@@ -118,16 +118,16 @@ def aol():
     state['valid_freq'] = 5000
 
     # Dimensionality of the query hidden layer
-    state['qdim'] = 1000
+    state['qdim'] = 400
     # Dimensionality of session hidden layer
-    state['sdim'] = 1500
+    state['sdim'] = 800
     # Dimensionality of low-rank approximation
-    state['rankdim'] = 300
-    state['bs'] = 80
-    state['seqlen'] = 50
+    state['rankdim'] = 200
+    state['bs'] = 1
+    state['seqlen'] = 30
     state['eos_sym'] = 2
     state['eoq_sym'] = 1
-    state['save_dir'] = '/part/01/Tmp/sordonia/'
+    state['save_dir'] = './wb/models_s/'
     state['session_rec_activation'] = "lambda x: T.tanh(x)"
     state['query_rec_activation'] = "lambda x: T.tanh(x)"
     state['session_step_type'] = "gated"
